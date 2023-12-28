@@ -18,8 +18,8 @@ Module.expectedDataFileDownloads++;
     } else {
       throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = 'D:/Users/twosu/Documents/GitHub/RoadToad/Binaries/HTML5/RoadToad.data';
-    var REMOTE_PACKAGE_BASE = 'RoadToad.data';
+    var PACKAGE_NAME = 'D:/Users/twosu/Documents/GitHub/frogger/Binaries/HTML5/Frogger.data';
+    var REMOTE_PACKAGE_BASE = 'Frogger.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       err('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -98,9 +98,9 @@ Module.expectedDataFileDownloads++;
     function assert(check, msg) {
       if (!check) throw msg + new Error().stack;
     }
-Module['FS_createPath']('/', 'RoadToad', true, true);
-Module['FS_createPath']('/RoadToad', 'Content', true, true);
-Module['FS_createPath']('/RoadToad/Content', 'Paks', true, true);
+Module['FS_createPath']('/', 'Frogger', true, true);
+Module['FS_createPath']('/Frogger', 'Content', true, true);
+Module['FS_createPath']('/Frogger/Content', 'Paks', true, true);
 
     function DataRequest(start, end, audio) {
       this.start = start;
@@ -149,10 +149,10 @@ Module['FS_createPath']('/RoadToad/Content', 'Paks', true, true);
           for (var i = 0; i < files.length; ++i) {
             DataRequest.prototype.requests[files[i].filename].onload();
           }
-              Module['removeRunDependency']('datafile_D:/Users/twosu/Documents/GitHub/RoadToad/Binaries/HTML5/RoadToad.data');
+              Module['removeRunDependency']('datafile_D:/Users/twosu/Documents/GitHub/frogger/Binaries/HTML5/Frogger.data');
 
     };
-    Module['addRunDependency']('datafile_D:/Users/twosu/Documents/GitHub/RoadToad/Binaries/HTML5/RoadToad.data');
+    Module['addRunDependency']('datafile_D:/Users/twosu/Documents/GitHub/frogger/Binaries/HTML5/Frogger.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
@@ -173,6 +173,6 @@ Module['FS_createPath']('/RoadToad/Content', 'Paks', true, true);
   }
 
  }
- loadPackage({"files": [{"start": 0, "audio": 0, "end": 53, "filename": "/Manifest_NonUFSFiles_HTML5.txt"}, {"start": 53, "audio": 0, "end": 87, "filename": "/UE4CommandLine.txt"}, {"start": 87, "audio": 0, "end": 49522018, "filename": "/RoadToad/Content/Paks/RoadToad-HTML5.pak"}], "remote_package_size": 49522018, "package_uuid": "502bacc3-c866-4471-b095-4f5fa59f37a4"});
+ loadPackage({"files": [{"start": 0, "audio": 0, "end": 53, "filename": "/Manifest_NonUFSFiles_HTML5.txt"}, {"start": 53, "audio": 0, "end": 87, "filename": "/UE4CommandLine.txt"}, {"start": 87, "audio": 0, "end": 49522018, "filename": "/Frogger/Content/Paks/Frogger-HTML5.pak"}], "remote_package_size": 49522018, "package_uuid": "502bacc3-c866-4471-b095-4f5fa59f37a4"});
 
 })();

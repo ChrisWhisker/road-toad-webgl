@@ -72,7 +72,7 @@ var Module = {
 
 	assetDownloadProgress: {}, // Track how many bytes of each needed asset has been downloaded so far.
 
-	UE4_indexedDBName: 'UE4_assetDatabase_RoadToad', // this should be an ascii ID string without special characters that is unique to the project that is being packaged
+	UE4_indexedDBName: 'UE4_assetDatabase_Frogger', // this should be an ascii ID string without special characters that is unique to the project that is being packaged
 	UE4_indexedDBVersion: 202312102027, // Bump this number to invalidate existing IDB storages in browsers.
 };
 
@@ -82,7 +82,7 @@ var Module = {
 // ================================================================================
 // *** HTML5 UE4 ***
 
-Module.arguments = ['../../../RoadToad/RoadToad.uproject','-stdout',];
+Module.arguments = ['../../../Frogger/Frogger.uproject','-stdout',];
 
 // UE4 Editor or UE4 Frontend with assets "cook on the fly"?
 if (location.host != "" && (location.search.indexOf('cookonthefly') != -1)) {
@@ -1154,22 +1154,22 @@ $(document).ready(function() {
 
 		// ----------------------------------------
 		// MORE JS
-		var dataJsDownload = fetchOrDownloadAndStore(db, Module.locateFile('RoadToad.data.js'));
+		var dataJsDownload = fetchOrDownloadAndStore(db, Module.locateFile('Frogger.data.js'));
 		var utilityJsDownload = fetchOrDownloadAndStore(db, Module.locateFile('Utility.js')).then(addScriptToDom);
 		var dataDownload =
 /* // The following code would download and store the .data file as a Blob, which should be more efficient than loading an ArrayBuffer. However that seems to be buggy, so avoid it for now.
-			fetchOrDownloadAndStore(db, Module.locateFile('RoadToad.data')).then(function(dataBlob) {
+			fetchOrDownloadAndStore(db, Module.locateFile('Frogger.data')).then(function(dataBlob) {
 				return readBlobToArrayBuffer(dataBlob).then(function(dataArrayBuffer) {
 					Module['preloadedPackages'] = {};
-					Module['preloadedPackages'][Module.locateFile('RoadToad.data')] = dataArrayBuffer;
+					Module['preloadedPackages'][Module.locateFile('Frogger.data')] = dataArrayBuffer;
 					return dataJsDownload.then(addScriptToDom);
 				})
 			});
 */
 // Instead as a fallback, download as ArrayBuffer. (TODO: Figure out the bugs with the above, and switch to using that one instead)
-			fetchOrDownloadAndStore(db, Module.locateFile('RoadToad.data'), 'arraybuffer').then(function(dataArrayBuffer) {
+			fetchOrDownloadAndStore(db, Module.locateFile('Frogger.data'), 'arraybuffer').then(function(dataArrayBuffer) {
 				Module['preloadedPackages'] = {};
-				Module['preloadedPackages'][Module.locateFile('RoadToad.data')] = dataArrayBuffer;
+				Module['preloadedPackages'][Module.locateFile('Frogger.data')] = dataArrayBuffer;
 				return dataJsDownload.then(addScriptToDom);
 			});
 
